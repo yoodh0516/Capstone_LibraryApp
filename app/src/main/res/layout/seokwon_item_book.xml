@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  파일 위치: app/src/main/res/layout/item_book.xml
+  수정일: 2026-02-27
+  설명: 인기 도서 리스트에서 사용될 책 1권의 디자인 (즐겨찾기 별 버튼 추가)
+-->
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginHorizontal="16dp"
+    android:layout_marginVertical="8dp"
+    app:cardCornerRadius="12dp"
+    app:cardElevation="4dp"
+    app:cardBackgroundColor="@android:color/white">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="12dp">
+
+        <!-- 1. 책 표지 이미지 -->
+        <ImageView
+            android:id="@+id/iv_book_cover"
+            android:layout_width="80dp"
+            android:layout_height="110dp"
+            android:scaleType="centerCrop"
+            android:background="#E0E0E0"
+            android:contentDescription="책 표지 이미지"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+        <!-- 4. 즐겨찾기 별 버튼 (우측에 고정) -->
+        <ImageView
+            android:id="@+id/iv_bookmark_star"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:padding="4dp"
+            android:src="@android:drawable/star_big_off"
+            android:contentDescription="즐겨찾기 버튼"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+        <!-- 2. 책 제목 (별 버튼 왼쪽까지만 늘어나게 수정) -->
+        <TextView
+            android:id="@+id/tv_book_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="책 제목 예시"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="#000000"
+            android:maxLines="2"
+            android:ellipsize="end"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="8dp"
+            app:layout_constraintStart_toEndOf="@id/iv_book_cover"
+            app:layout_constraintTop_toTopOf="@id/iv_book_cover"
+            app:layout_constraintEnd_toStartOf="@id/iv_bookmark_star" />
+
+        <!-- 3. 작가 이름 (별 버튼 왼쪽까지만 늘어나게 수정) -->
+        <TextView
+            android:id="@+id/tv_book_author"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="작가 이름"
+            android:textSize="14sp"
+            android:textColor="#757575"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="8dp"
+            app:layout_constraintStart_toStartOf="@id/tv_book_title"
+            app:layout_constraintTop_toBottomOf="@id/tv_book_title"
+            app:layout_constraintEnd_toStartOf="@id/iv_bookmark_star" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>
